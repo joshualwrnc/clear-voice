@@ -90,7 +90,7 @@ This table records what was actually exercised on the date above, including
 any limitation noted in a row. It is not a guarantee about other clients or
 future releases; the skill remains a plain, portable set of markdown files.
 
-## Related writing styles
+## Related Writing Skills
 
 These are independent projects by other authors with related goals. They are
 installed separately and are not bundled with Clear Voice. These links are not
@@ -114,6 +114,15 @@ compatibility, affiliation, or endorsement claims.
   or CLI integration with this package. See the upstream
   [repository license](https://github.com/JuliusBrussee/caveman/blob/main/LICENSE)
   for its mixed licensing scope.
+- [Humanizer](https://github.com/blader/humanizer) by Siqi Chen (`@blader`) is
+  an MIT-licensed voice-editing skill that is installed separately and is not
+  bundled with Clear Voice. Hermes Agent ported it for Hermes-native tools and
+  added Hermes-specific guidance and patterns; see the bundled skill
+  [documentation](https://hermes-agent.nousresearch.com/docs/user-guide/skills/bundled/creative/creative-humanizer).
+  Combining it with Clear Voice is **untested**: Humanizer's intentionally
+  casual and opinionated voice choices can conflict with Clear Voice's precision
+  and global accessibility, so higher-priority instructions or your explicit
+  constraints should decide.
 
 ## License
 

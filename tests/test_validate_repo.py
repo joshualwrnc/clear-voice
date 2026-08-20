@@ -29,7 +29,7 @@ Choose This reply, This conversation, or Moving forward.
 
 Current-client and profile persistence boundary: this repository does not persist current-client data or profile data.
 
-## Related Writing Styles
+## Related Writing Skills
 
 - Plain language
 
@@ -123,6 +123,24 @@ class ValidatorTests(unittest.TestCase):
         code, result = self.run_validator(root)
         self.assertNotEqual(code, 0)
         self.assertTrue(any("compatibility" in error for error in result["errors"]))
+
+    def test_related_writing_skills_heading_regression(self):
+        root = self.make_repo()
+        (root / "README.md").write_text(
+            VALID_README.replace("## Related Writing Skills", "## Related Writing Styles"),
+            encoding="utf-8",
+        )
+        code, result = self.run_validator(root)
+        self.assertNotEqual(code, 0)
+        self.assertTrue(any("Related Writing Skills" in error for error in result["errors"]))
+
+        ok_root = self.make_repo()
+        (ok_root / "README.md").write_text(
+            VALID_README.replace("## Related Writing Styles", "## Related Writing Skills"),
+            encoding="utf-8",
+        )
+        code, result = self.run_validator(ok_root)
+        self.assertEqual(code, 0, result["errors"])
 
     def test_missing_required_file_fails(self):
         root = self.make_repo()
