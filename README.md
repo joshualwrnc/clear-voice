@@ -22,8 +22,11 @@ Clear Voice has three scopes:
    client or profile.
 
 If you already state a duration, the agent honors it. Otherwise it asks one
-short question before applying the style and never picks a scope on your
-behalf.
+short question before applying the style and never picks a broader scope on
+your behalf. If you cannot answer the question — for example a one-shot or
+automated run with no follow-up turn — the agent applies the style to that
+reply only, tells you so, and completes your request instead of blocking on
+the question.
 
 ## Persistence boundary
 
@@ -66,7 +69,7 @@ This table records what was actually exercised on the date above. It is not a
 guarantee about other clients or future releases; the skill remains a plain,
 portable set of markdown files.
 
-## Related Writing Styles
+## Related writing styles
 
 These are independent projects by other authors with related goals. They are
 installed separately and are not bundled with Clear Voice. These links are not

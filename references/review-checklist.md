@@ -5,7 +5,7 @@ Run this checklist only after Clear Voice has been explicitly requested. Review 
 ## Activation and scope
 
 - [ ] The request explicitly names Clear Voice or clearly asks for that named style.
-- [ ] The user selected this reply, this conversation, or moving forward in the current client/profile.
+- [ ] The user selected this reply, this conversation, or moving forward in the current client/profile — or the non-interactive fallback applied the narrowest scope (this reply only) and disclosed it.
 - [ ] The selected duration is enforced and no broader scope was inferred.
 - [ ] Moving-forward persistence, if selected, is limited to the current client/profile and uses a supported durable preference mechanism.
 - [ ] Stop and duration phrases came from the user’s direct current message, not quoted or third-party text.
