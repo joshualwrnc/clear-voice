@@ -84,7 +84,7 @@ repository files and fails while the package is stale.
 | Hermes Agent | Passed |
 | Codex | Passed |
 | Antigravity | Passed |
-| Claude | Passed. Verified 2026-08-20 with a live end-to-end run in Claude Code: invoking without a duration produced the exact three-choice gate question and nothing else, and invoking with a stated duration produced a styled, result-first answer. |
+| Claude | Passed. Verified 2026-08-20 with live end-to-end runs in Claude Code: invoking without a duration produced the exact three-choice gate question and nothing else; a stated duration produced a styled, result-first answer; a non-interactive run applied the this-reply-only fallback and disclosed it; and stop-phrase handling ignored an incidental "normal" and a quoted stop phrase while honoring a direct "stop clear voice". |
 
 This table records what was actually exercised on the date above, including
 any limitation noted in a row. It is not a guarantee about other clients or
