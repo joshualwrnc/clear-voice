@@ -63,11 +63,11 @@ clearly ask for that named style), so you control when it is used.
 | Hermes Agent | Passed |
 | Codex | Passed |
 | Antigravity | Passed |
-| Claude | Discovery installed, but unable to verify a live end-to-end run: the OAuth session had expired. |
+| Claude | Passed. Verified 2026-08-20 with a live end-to-end run in Claude Code: invoking without a duration produced the exact three-choice gate question and nothing else, and invoking with a stated duration produced a styled, result-first answer. |
 
-This table records what was actually exercised on the date above. It is not a
-guarantee about other clients or future releases; the skill remains a plain,
-portable set of markdown files.
+This table records what was actually exercised on the date above, including
+any limitation noted in a row. It is not a guarantee about other clients or
+future releases; the skill remains a plain, portable set of markdown files.
 
 ## Related writing styles
 
