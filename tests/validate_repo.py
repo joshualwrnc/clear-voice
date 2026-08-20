@@ -6,6 +6,7 @@ import argparse
 import json
 import re
 import sys
+import zipfile
 from pathlib import Path
 
 REQUIRED_ROOT_FILES = ("README.md", "LICENSE", "LICENSE-CODE", "NOTICE.md", "SKILL.md")
@@ -123,6 +124,29 @@ def validate(root: Path) -> dict[str, object]:
         good = bool(re.search(r"MIT License", text, re.I) and re.search(r"permission is hereby granted", text, re.I))
         checks["license_code_mit"] = good
         add(errors, good, "LICENSE-CODE must be the MIT license")
+
+    dist_package = root / "dist" / "clear-voice.skill"
+    if dist_package.is_file():
+        expected = {f"clear-voice/{name}": root / name
+                    for name in ("SKILL.md", "NOTICE.md", "LICENSE", "README.md")}
+        for ref in reference_files:
+            expected[f"clear-voice/references/{ref.name}"] = ref
+        fresh = True
+        try:
+            with zipfile.ZipFile(dist_package) as zf:
+                names = set(zf.namelist())
+                for arcname, source in expected.items():
+                    if not source.is_file():
+                        continue
+                    if arcname not in names or zf.read(arcname) != source.read_bytes():
+                        fresh = False
+                        add(errors, False,
+                            f"dist/clear-voice.skill is stale: {arcname} does not match the "
+                            "repository file; regenerate the package from the current files")
+        except zipfile.BadZipFile:
+            fresh = False
+            add(errors, False, "dist/clear-voice.skill is not a valid zip archive")
+        checks["dist_package_fresh"] = fresh
 
     forbidden_vendor = []
     forbidden_automation = []

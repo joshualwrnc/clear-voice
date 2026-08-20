@@ -72,6 +72,11 @@ The plain files in this repository remain the canonical source; the package
 is regenerated from them when they change, so if the two ever disagree, the
 plain files win.
 
+Maintainers: after changing `SKILL.md`, `README.md`, `NOTICE.md`, `LICENSE`,
+or anything in `references/`, rebuild `dist/clear-voice.skill` in the same
+change. `tests/validate_repo.py` compares the package contents to the
+repository files and fails while the package is stale.
+
 ## Verified-client matrix (as of 2026-08-20)
 
 | Client | Status |

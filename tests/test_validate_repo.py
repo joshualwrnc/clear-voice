@@ -162,6 +162,29 @@ class ValidatorTests(unittest.TestCase):
         self.assertIn("automation", joined)
         self.assertIn("install", joined)
 
+    def test_fresh_dist_package_passes(self):
+        import zipfile
+        root = self.make_repo()
+        (root / "dist").mkdir()
+        with zipfile.ZipFile(root / "dist" / "clear-voice.skill", "w") as zf:
+            for name in ("SKILL.md", "NOTICE.md", "LICENSE", "README.md"):
+                zf.writestr(f"clear-voice/{name}", (root / name).read_bytes())
+            for ref in sorted((root / "references").iterdir()):
+                zf.writestr(f"clear-voice/references/{ref.name}", ref.read_bytes())
+        code, result = self.run_validator(root)
+        self.assertEqual(code, 0, result["errors"])
+        self.assertTrue(result["checks"]["dist_package_fresh"])
+
+    def test_stale_dist_package_fails(self):
+        import zipfile
+        root = self.make_repo()
+        (root / "dist").mkdir()
+        with zipfile.ZipFile(root / "dist" / "clear-voice.skill", "w") as zf:
+            zf.writestr("clear-voice/SKILL.md", "outdated content")
+        code, result = self.run_validator(root)
+        self.assertNotEqual(code, 0)
+        self.assertTrue(any("stale" in error for error in result["errors"]))
+
     def test_default_root_is_parent_of_tests_directory(self):
         proc = subprocess.run(
             [sys.executable, str(VALIDATOR)],
