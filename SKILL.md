@@ -1,6 +1,6 @@
 ---
 name: clear-voice
-description: "Use when the user explicitly asks for 'Clear Voice' by name: a plain, direct, result-first style for replies and documents; never triggered by context alone."
+description: "Use when the user asks for 'Clear Voice' by name in any form ('use clear voice', 'clearvoice', 'clear voice please', 'stop clear voice'). Invoke this skill FIRST, before answering or applying any style yourself: it contains a mandatory duration question you must ask. Not for clarity or tone requests that do not name Clear Voice."
 license: CC-BY-4.0; see NOTICE.md
 ---
 
