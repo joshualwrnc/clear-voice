@@ -56,6 +56,12 @@ through its own mechanism, so follow the normal installation path for your
 agent. The skill activates only when you request "Clear Voice" by name (or
 clearly ask for that named style), so you control when it is used.
 
+For the most reliable activation, invoke the skill directly if your client
+supports slash commands (for example `/clear-voice`). A direct invocation
+bypasses the agent's discretion about whether to consult the skill, which
+matters because agents sometimes restyle text from memory instead of loading
+the skill and its duration question.
+
 ## Verified-client matrix (as of 2026-08-20)
 
 | Client | Status |
