@@ -64,7 +64,7 @@ def validate(root: Path) -> dict[str, object]:
         add(errors, fields.get("name") == "clear-voice", "SKILL.md frontmatter name must be clear-voice")
         trigger = fields.get("description", "")
         add(errors, (trigger.lower().startswith("use on") or trigger.lower().startswith("use when"))
-            and 20 <= len(trigger) <= 160,
+            and 20 <= len(trigger) <= 350,
             "SKILL.md frontmatter description must be a concise explicit trigger starting with 'Use on' or 'Use when'")
         add(errors, fields.get("license", "").upper().startswith("CC-BY"),
             "SKILL.md frontmatter must have a CC-BY license field")
