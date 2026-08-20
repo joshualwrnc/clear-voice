@@ -83,8 +83,12 @@ compatibility, affiliation, or endorsement claims.
   later versions may differ.
 - [Caveman](https://github.com/JuliusBrussee/caveman) by Julius Brussee is a
   compression-focused communication mode. Note the limits of what we reviewed:
-  combining Clear Voice with Caveman is **untested**; Caveman itself is
-  **persistent** and **auto-triggering** once installed; and only the standalone
+  combining Clear Voice with Caveman is effectively **untested** — one
+  exploratory run on 2026-08-20 that named both styles produced
+  Caveman-dominated output, but that run could not load Clear Voice's full
+  rules, so treat the pairing as unsupported; Caveman itself is **persistent**
+  and **auto-triggering** once installed (it activates on brevity or
+  token-efficiency requests, not only when named); and only the standalone
   skill was reviewed. We are not recommending its plugin, proxy, hooks,
   or CLI integration with this package. See the upstream
   [repository license](https://github.com/JuliusBrussee/caveman/blob/main/LICENSE)
