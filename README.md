@@ -62,6 +62,16 @@ bypasses the agent's discretion about whether to consult the skill, which
 matters because agents sometimes restyle text from memory instead of loading
 the skill and its duration question.
 
+### Packaged skill file
+
+For clients that install skills from a single file, the repository also
+ships a prebuilt package at [dist/clear-voice.skill](dist/clear-voice.skill).
+In claude.ai, upload it under Settings, Capabilities, Skills. In Claude Code
+or Cowork, sharing the file into a conversation shows a Save skill button.
+The plain files in this repository remain the canonical source; the package
+is regenerated from them when they change, so if the two ever disagree, the
+plain files win.
+
 ## Verified-client matrix (as of 2026-08-20)
 
 | Client | Status |
