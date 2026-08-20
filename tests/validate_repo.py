@@ -92,7 +92,7 @@ def validate(root: Path) -> dict[str, object]:
         add(errors, bool(re.search(r"current[- ]client", readme, re.I) and re.search(r"profile", readme, re.I)
                            and re.search(r"persist|boundary", readme, re.I)),
             "README.md must state the current-client/profile persistence boundary")
-        add(errors, "Related Writing Styles" in readme, "README.md must include 'Related Writing Styles'")
+        add(errors, "Related Writing Skills" in readme, "README.md must include 'Related Writing Skills'")
         add(errors, bool(re.search(r"author", readme, re.I) and re.search(r"repo|repository", readme, re.I)
                            and re.search(r"license", readme, re.I)),
             "README.md must include external author/repository/license notes")
